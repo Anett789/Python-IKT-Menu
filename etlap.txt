@@ -1,0 +1,3 @@
+Rántott sajt,400,1990
+Rántott gomba,188,1490
+Rántott brokkoli,154,1890
