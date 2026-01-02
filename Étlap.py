@@ -1,4 +1,3 @@
-
 etlap = {
 
   "Almával töltött csirkemell" : {
