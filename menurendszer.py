@@ -1,7 +1,20 @@
 import etlap_beolvasasa
+import etlap_szerkesztese
+
+
+#innen futatható a program!
 
 print("Üdvözöljük az XY interaktiv étlapon.") #<- Majd adhatunk neki valami nevet, most csak azon voltam, hogy legyen egy üdvözlő szöveg
 print("")
+
+def almenű9(): #<- bedefeltem, így nem foglal annyi helyet.
+
+    print("")
+    print("[1] Étlaphoz új elem hozzáadása")
+    print("[2] Étlap elemeinek módosítása")
+    print("[3] Étlap elemeinek törlése")
+    print("[9] Változtatások mentése")
+    print("[0] Visszalépés a főmenübe")
 
 def főmenü():
 
@@ -55,12 +68,8 @@ while navigáció != 0:
 
                 szamlaló = szamlaló - 1
 
-            else: # késöbb akár ezt is be lehet def-elni, mint almenü
-                print("[1] Étlaphoz új elem hozzáadása")
-                print("[2] Étlap elemeinek módosítása")
-                print("[3] Étlap elemeinek törlése")
-                print("[0] Visszalépés a főmenübe")
-                print("")
+            else:
+                almenű9() #<- almenű9 beillesztve
 
                 szamlaló = 0
 
@@ -70,17 +79,35 @@ while navigáció != 0:
                     if navigáció2 == 1:
                         print("1")
                     elif navigáció2 == 2:
-                        print("2")
+                        etlap_szerkesztese.étlapkiirása() #<- először kiíratom az étlapot
+                        etlap_szerkesztese.étlapszerkesztése() #<- utána jöhet a szerkesztés
                     elif navigáció2 == 3:
                         print("3")
+                    elif navigáció2 == 9:
+                        etlap_szerkesztese.étlapkiirása() #<- ezzel a már szerkesztett, de még nem mentett étlapot írja ki
+                        print("")
+                        nav = input("Biztosan menteni kivánja a változtatásokat? [I]gen/[N]em: ")  #<- Külön mentési menüpontot hoztam létre, ennél jobban müködik az igen/nem, mint a számozás, pláne, hogy elötte megjelenítem neki az aktuális változtatásokat
+                        while nav.lower() != "0":
+                            if nav.lower() == "i":
+                                print("A változtatások mentésre kerültek")
+                                etlap_szerkesztese.mentés() #<- menti az étlapot a fájlba
+                                break
+                            elif nav.lower() == "n":
+                                etlap_szerkesztese.étlap = etlap_szerkesztese.étlapdefault() #<- ezzel az etlap_szerkesztese.py-on lévő étlap listára hivatkozok, és azt resetelem, így a mentetlen szerkesztés elvész.
+                                break
+                            else:
+                                print("Nem létező opció. Kérem, válasszon másikat!")
+                            nav = input("Biztosan menteni kivánja a változtatásokat? [I]gen/[N]em: ")
                     else:
                         print("Nem létező opció. Kérem, válasszon másikat!")
+
+                    almenű9()
 
                     navigáció2 = int(input("Kérem, válasszon a fenti lehetőségek közül [0-9]:"))
            
         print("Visszatérés a Főmenübe")
         print("")
-
+        etlap_szerkesztese.étlap = etlap_szerkesztese.étlapdefault() #<- ezzel az etlap_szerkesztese.py-on lévő étlap listára hivatkozok, és azt resetelem, így a mentetlen szerkesztés elvész (ebben az esetben, amikor visszalép a főmenübe).
         főmenü()
 
     elif navigáció == 0:
