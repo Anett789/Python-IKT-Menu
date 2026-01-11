@@ -160,3 +160,21 @@ def kiválasztott_ételek_tápértéke():    #a kiválasztott ételek kalóriáj
         össz_tápérték += étel["tápértéke"]
 
     print(f"\nÖsszes tápérték: {össz_tápérték} kcal/100g")
+
+
+
+
+
+def kiválasztott_ételek_ára():    #a kiválasztott ételek árát kalkulálja ki.
+    if len(kiválasztott_ételek) == 0:
+        print("Nincs kiválasztott étel!")
+       
+
+    össz_ára = 0
+
+    print("\nKiválasztott ételek ára:")
+    for étel in kiválasztott_ételek:
+        print(f"- {étel['étel neve']}: {étel['ára']} Ft")
+        össz_ára += étel["ára"]
+
+    print(f"\nÖsszes ára: {össz_ára} Ft")

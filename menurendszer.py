@@ -49,10 +49,11 @@ while navigáció != 0:
         etlap_szerkesztese.kiválasztott_ételek_törlése()     #kiíratom újra a főmenüt, hogy ne kelljen vissza görgetni.
         főmenü()
     elif navigáció == 3:
-        etlap_szerkesztese.kiválasztott_ételek_tápértéke()
+        etlap_szerkesztese.kiválasztott_ételek_tápértéke()   #ez szerintem magáért beszél. :D
         főmenü()
     elif navigáció == 4:
-        print("4")
+        etlap_szerkesztese.kiválasztott_ételek_ára()        #ez is ;)
+        főmenü()
     elif navigáció == 5:
         print("5")
     elif navigáció == 6:
