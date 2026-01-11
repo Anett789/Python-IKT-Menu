@@ -45,7 +45,9 @@ while navigáció != 0:
         print("")
         főmenü()
     elif navigáció == 2:
-        print("2") #<- Egyenlőre, csak print, így legalább látjuk, hogy a menűpontra kiírat valamit
+        etlap_szerkesztese.ételek_kiválasztása()          
+        etlap_szerkesztese.kiválasztott_ételek_törlése()     #kiíratom újra a főmenüt, hogy ne kelljen vissza görgetni.
+        főmenü()
     elif navigáció == 3:
         print("3")
     elif navigáció == 4:
