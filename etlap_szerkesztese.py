@@ -122,7 +122,6 @@ while x != 0:
 
 
 def kiválasztott_ételek_törlése():   #Csináltam olyan lehetöséget, hogy a kiválasztott ételeket lehessen szerkeszteni.
-     
     if len(kiválasztott_ételek) == 0:
         print("Nincs kiválasztott étel!")
 
@@ -145,3 +144,19 @@ while True:
             print(f"{törölt['étel neve']} törölve lett a kiválasztások közül.")
         else:
             print("Nincs ilyen opció!")
+
+
+
+def kiválasztott_ételek_tápértéke():    #a kiválasztott ételek kalóriáját kalkulálja ki.
+    if len(kiválasztott_ételek) == 0:
+        print("Nincs kiválasztott étel!")
+       
+
+    össz_tápérték = 0
+
+    print("\nKiválasztott ételek tápértéke:")
+    for étel in kiválasztott_ételek:
+        print(f"- {étel['étel neve']}: {étel['tápértéke']} kcal/100g")
+        össz_tápérték += étel["tápértéke"]
+
+    print(f"\nÖsszes tápérték: {össz_tápérték} kcal/100g")
