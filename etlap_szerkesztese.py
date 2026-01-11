@@ -99,15 +99,15 @@ kiválasztott_ételek = []
 
 def ételek_kiválasztása():  #Ezzel lehet kiválasztani az étlapról az ételeket.
     print("Étlap:")
-index = 1
-for étel in étlap:
+    index = 1
+    for étel in étlap:
         print(f"[{index}] {étel['étel neve']}")
         index += 1
-print("")
+    print("")
 
-x = int(input("Válasszon ételt: "))
+    x = int(input("Válasszon ételt: "))
 
-while x != 0:
+    while x != 0:
         if 1 <= x <= len(étlap):
             kiválasztott_ételek.append(étlap[x-1])
             print(f"{étlap[x-1]['étel neve']} hozzáadva a listához.")
@@ -125,7 +125,7 @@ def kiválasztott_ételek_törlése():   #Csináltam olyan lehetöséget, hogy a
     if len(kiválasztott_ételek) == 0:
         print("Nincs kiválasztott étel!")
 
-while True:
+    while True:
         print("\nKiválasztott ételek:")
         index = 1
         for étel in kiválasztott_ételek:
@@ -178,3 +178,32 @@ def kiválasztott_ételek_ára():    #a kiválasztott ételek árát kalkulálja
         össz_ára += étel["ára"]
 
     print(f"\nÖsszes ára: {össz_ára} Ft")
+
+
+
+
+def ételek_törlése():               #ételek törlése az étlapról.
+    print("Étlap tételének törlése:")
+    index = 1
+    for étel in étlap:
+        print(f"[{index}] {étel['étel neve']}")
+        index += 1
+    print("[0] Visszalépés")
+
+    x = int(input("Melyik ételt szeretné törölni?: "))
+
+    while x != 0:
+        if 1 <= x <= len(étlap):
+            törölt = étlap.pop(x-1)
+            print(f"{törölt['étel neve']} törölve lett.")
+        else:
+            print("Nincs ilyen opció!")
+
+        print("")
+        index = 1
+        for étel in étlap:
+            print(f"[{index}] {étel['étel neve']}")
+            index += 1
+        print("[0] Visszalépés")
+
+        x = int(input("Melyik ételt szeretné törölni?: "))

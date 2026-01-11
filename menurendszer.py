@@ -86,7 +86,30 @@ while navigáció != 0:
                         etlap_szerkesztese.étlapkiirása() #<- először kiíratom az étlapot
                         etlap_szerkesztese.étlapszerkesztése() #<- utána jöhet a szerkesztés
                     elif navigáció2 == 3:
-                        print("3")
+                        etlap_szerkesztese.ételek_törlése() #ételek törlését megcsináltam. A navigáció vissza visz a főmenüig.
+                        print("")
+                        nav = input("Biztosan menteni kivánja a változtatásokat? [I]gen/[N]em: ")  #<- Külön mentési menüpontot hoztam létre, ennél jobban müködik az igen/nem, mint a számozás, pláne, hogy elötte megjelenítem neki az aktuális változtatásokat
+                        while nav.lower() != "0":
+                            if nav.lower() == "i":
+                                print("A változtatások mentésre kerültek")
+                                etlap_szerkesztese.mentés() #<- menti az étlapot a fájlba
+                                break
+                            elif nav.lower() == "n":
+                                etlap_szerkesztese.étlap = etlap_szerkesztese.étlapdefault() #<- ezzel az etlap_szerkesztese.py-on lévő étlap listára hivatkozok, és azt resetelem, így a mentetlen szerkesztés elvész.
+                                break
+                            else:
+                                print("Nem létező opció. Kérem, válasszon másikat!")
+                            nav = input("Biztosan menteni kivánja a változtatásokat? [I]gen/[N]em: ")
+                        else:
+                            print("Nem létező opció. Kérem, válasszon másikat!")
+                        almenű9()
+                        navigáció2 = int(input("Kérem, válasszon a fenti lehetőségek közül [0-9]:"))
+                        print("Visszatérés a Főmenübe")
+                        print("")
+                        etlap_szerkesztese.étlap = etlap_szerkesztese.étlapdefault()
+                        főmenü()
+                        navigáció = int(input("Kérem, válasszon a fenti lehetőségek közül [0-9]:"))
+                   
                     elif navigáció2 == 9:
                         etlap_szerkesztese.étlapkiirása() #<- ezzel a már szerkesztett, de még nem mentett étlapot írja ki
                         print("")
@@ -102,8 +125,8 @@ while navigáció != 0:
                             else:
                                 print("Nem létező opció. Kérem, válasszon másikat!")
                             nav = input("Biztosan menteni kivánja a változtatásokat? [I]gen/[N]em: ")
-                    else:
-                        print("Nem létező opció. Kérem, válasszon másikat!")
+                        else:
+                            print("Nem létező opció. Kérem, válasszon másikat!")
 
                     almenű9()
 
@@ -123,3 +146,4 @@ while navigáció != 0:
 
 print("Program vége")
 # Így ennyi! Remélem átlátható, meg használható :)
+
