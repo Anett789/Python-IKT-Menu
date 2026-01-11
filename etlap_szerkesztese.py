@@ -95,5 +95,25 @@ for étel in étlap:
 
 # ide alulra mehet az "Étlaphoz új elem hozzáadása" és az "Étlap elemeinek törlése"
 
+kiválasztott_ételek = []
 
- 
+def ételek_kiválasztása():
+    print("Étlap:")
+index = 1
+for étel in étlap:
+        print(f"[{index}] {étel['étel neve']}")
+        index += 1
+print("")
+
+x = int(input("Válasszon ételt: "))
+
+while x != 0:
+        if 1 <= x <= len(étlap):
+            kiválasztott_ételek.append(étlap[x-1])
+            print(f"{étlap[x-1]['étel neve']} hozzáadva a listához.")
+        else:
+            print("Nem létező opció!")
+
+        print("")
+        x = int(input("Válasszon újabb ételt [0 = kész]: "))
+        
