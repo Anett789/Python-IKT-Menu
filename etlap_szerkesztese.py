@@ -96,3 +96,4 @@ for étel in étlap:
 # ide alulra mehet az "Étlaphoz új elem hozzáadása" és az "Étlap elemeinek törlése"
 
 
+ 
