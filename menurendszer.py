@@ -2,6 +2,12 @@ import etlap_beolvasasa
 import etlap_szerkesztese
 
 
+rendelés = []
+meglepetés = []
+vég = []
+
+
+
 #innen futatható a program!
 
 print("Üdvözöljük az XY interaktiv étlapon.") #<- Majd adhatunk neki valami nevet, most csak azon voltam, hogy legyen egy üdvözlő szöveg
@@ -23,7 +29,7 @@ def főmenü():
     print("[3] Tápérték kalkuláció")
     print("[4] Ár kiszámítása")
     print("[5] Meglepetés menű")
-    print("[6] Kiszállítási idő")
+    print("[6] Rendelés véglegesítése")
     print("[9] Étlap szerkesztése [Admin funkció]")
     print("[0] Kilépés a programból")
     print("")
@@ -55,9 +61,45 @@ while navigáció != 0:
         etlap_szerkesztese.kiválasztott_ételek_ára()        #ár kiszámítása
         főmenü()
     elif navigáció == 5:
-        print("5")
+        meglepetés = etlap_szerkesztese.meglepetésmenü()
+        etlap_szerkesztese.meglepetésmenükiírása(meglepetés)
+        print("")
+        navigáció2 = int(input("[0] Visszalépés a főmenübe: "))
+        while navigáció2 != 0:
+            print("Nem létező opció. Kérem, válasszon másikat!")
+            print("")
+            navigáció2 = int(input("[0] Visszalépés a főmenübe: "))
+        print("")
+        főmenü()        
     elif navigáció == 6:
-        print("6")
+        vég = meglepetés
+        if len(vég) == 0:
+            print("Nem választott megrendelni kívánt ételt.")
+            print("")
+            navigáció2 = int(input("[0] Visszalépés a főmenübe: "))
+        else:    
+            etlap_szerkesztese.végleges(vég)
+            print("")
+            megrendel = input("Meg kívánja rendelni a fenti ételeket? [I]gen/[N]em: ")
+            while megrendel != 0:
+                if megrendel.lower() == "i":
+                    print("")
+                    print("Köszönjük a megrendelését!")
+                    print("")
+                    navigáció2 = int(input("[0] Visszalépés a főmenübe: "))
+                    break                    
+                elif megrendel.lower() == "n":
+                    print("")
+                    print("A megrendelését töröltük!")
+                    break
+                elif megrendel == "0":
+                    break
+                else:
+                    print("Nem létező opció. Kérem, válasszon másikat!")
+                    megrendel = input("Meg kívánja rendelni a fenti ételeket? [I]gen/[N]em: ")
+        vég.clear()
+        print("")
+        főmenü()        
     elif navigáció == 9: #<- Itt a szerkesztés menűponthoz hozzáadtam egy jelszó bekérést. Háromszor lehet próbálkozni, utána visszavág a főmenübe. A jelszó: 1234
 
         szamlaló = 3

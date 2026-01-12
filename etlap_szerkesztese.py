@@ -95,6 +95,7 @@ for étel in étlap:
 
 # ide alulra mehet az "Étlaphoz új elem hozzáadása" és az "Étlap elemeinek törlése"
 
+<<<<<<< HEAD
 kiválasztott_ételek = []
 
 def ételek_kiválasztása():  #Ezzel lehet kiválasztani az étlapról az ételeket.
@@ -207,3 +208,55 @@ def ételek_törlése():               #ételek törlése az étlapról.
         print("[0] Visszalépés")
 
         x = int(input("Melyik ételt szeretné törölni?: "))
+=======
+def rendelés():
+    rendeles = []
+    választás = int(input("Melyik ételt szeretné megrendelni[0-9]? "))
+    while választás != 0:
+        rendeles.append(étlap[választás-1])
+        for étel in rendeles:
+            print(f"étel neve: {étel["étel neve"]}, tápértéke: {étel["tápértéke"]} kcal/100gramm, ára: {étel["ára"]} Ft")
+        választás = int(input("Melyik ételt szeretné megrendelni[0-9]? "))
+
+    return rendeles
+
+import random
+
+def meglepetésmenü():
+
+    meglepetés = []
+
+    meglepi = int(input("Hány fő részére szeretne meglepetés menűt? "))
+
+    for i in range(meglepi):
+        meglepetés.append(étlap[random.randint(0, len(étlap)-1)])
+    
+    return meglepetés
+
+def meglepetésmenükiírása(meglepetés):
+
+    index = 1
+    for étel in meglepetés:
+        print(f"{index}. étel neve: {étel["étel neve"]}, tápértéke: {étel["tápértéke"]} kcal/100gramm, ára: {étel["ára"]} Ft")
+        index += 1
+
+
+    összár = sum(étel["ára"] for étel in meglepetés)
+    print(f"\t\t\tÖsszesen {összár} Ft.")
+
+
+# meglepetés = meglepetésmenü()
+# rendeles = rendelés()
+
+# vég = meglepetés + rendeles
+
+def végleges(vég):
+    
+    index = 1
+    for étel in vég:
+        print(f"{index}. étel neve: {étel["étel neve"]}, tápértéke: {étel["tápértéke"]} kcal/100gramm, ára: {étel["ára"]} Ft")    
+        index += 1
+
+    összár = sum(étel["ára"] for étel in vég)
+    print(f"\t\t\tÖsszesen {összár} Ft.")
+>>>>>>> 9534eb8 (meglepi menü hozzáadva)
