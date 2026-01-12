@@ -1,3 +1,4 @@
 Rántott sajt,400,1990,
 Rántott gomba,188,1490,
-Rántott brokkoli,154,1890,
+Rántott brokkolii,157,1790,
+Palacsinta,520,1290,
