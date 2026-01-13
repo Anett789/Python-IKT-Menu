@@ -1,4 +1,21 @@
+Húsleves,100,1590
+Gombakrémleves,130,1590
+Karfiolleves,60,1590
+Gulyásleves,345,2590
 Rántott sajt,400,1990,
 Rántott gomba,188,1490,
-Rántott brokkolii,157,1790,
-Palacsinta,520,1290,
+Rántott brokkoli,154,1890,
+Sült csirkemell,210,2290
+Mézes-mustáros sertésszűz,281,2590
+Jázmin rizs,250,1090
+Burgonyapüré,260,1090
+Vegyes saláta,50,1090
+Rakott kelkáposzta,580,3990
+Marhapörkölt galuskával,600,4390
+Ecetes uborkasaláta,50,690
+Csalamádé,35,690
+Tartár mártás,150,490
+Ketchup,45,300
+Majonéz,200,300
+Nutellás palacsinta,250,1490
+Túrógombóc,200,1490
